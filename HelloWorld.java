@@ -3,8 +3,9 @@ public class HelloWorld {
         return "Hello, World!";
     }
 
+    // Main method to run inside Docker
     public static void main(String[] args) {
-        HelloWorld helloWorld = new HelloWorld();
-        System.out.println(helloWorld.sayHello());
+        HelloWorld hello = new HelloWorld();
+        System.out.println(hello.sayHello());
     }
 }
