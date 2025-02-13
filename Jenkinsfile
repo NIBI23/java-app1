@@ -15,13 +15,16 @@ pipeline {
         
         stage ('docker build') {
             steps {
+                sh 'docker rmi -f java-app1'
                 sh 'docker build -t java-app1 .'
             }
         }
 
         stage ('docker Run') {
             steps {
-                sh 'docker run -d -p 8080:8080 java-app1'
+                sh 'docker stop java-app1 || true'
+                sh 'docker rm java-app1 || true'
+                sh 'docker run -d -p 80:80 java-app1'
             }
         }
     }
