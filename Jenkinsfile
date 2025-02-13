@@ -20,6 +20,12 @@ pipeline {
             }
         }
 
+        stage ('trivy scan') {
+            steps {
+                sh 'trivy image --exit-code 0 --severity HIGH --no-progress java-app1'
+            }
+        }
+
         stage ('docker Run') {
             steps {
                 sh 'docker stop java-app-container || true'
