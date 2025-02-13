@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('git checkout') {
             steps {
-                git '
+                git branch: 'main', url: 'https://github.com/NIBI23/java-app1.git'
             }
         }
 
