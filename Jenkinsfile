@@ -18,5 +18,11 @@ pipeline {
                 sh 'docker build -t java-app1 .'
             }
         }
+
+        stage ('docker run') {
+            steps {
+                sh 'docker run -d -p 8080:8080 java-app1'
+            }
+        }
     }
 }
