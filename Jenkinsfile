@@ -22,9 +22,9 @@ pipeline {
 
         stage ('docker Run') {
             steps {
-                sh 'docker stop java-app1 || true'
-                sh 'docker rm java-app1 || true'
-                sh 'docker run -d -p 80:80 java-app1'
+                sh 'docker stop java-app-container || true'
+                sh 'docker rm java-app-container || true'
+                sh 'docker run -d -p 80:80 --name java-app-container java-app1'
             }
         }
     }
